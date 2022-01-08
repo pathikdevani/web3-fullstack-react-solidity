@@ -22,14 +22,6 @@ class Web3Handler {
       this.address
     );
 	}
-
-	isMetamaskInstalled() {
-    return win.ethereum && win.ethereum.isMetaMask;
-  }
-
-  isReady() {
-    return this.isMetamaskInstalled();
-  }
 }
 
 export {Web3Handler};

@@ -4,7 +4,7 @@ import { useNavigate, useLocation, Route, Routes } from "react-router-dom";
 
 import './App.css';
 import EmployeePage from './pages/employee.page';
-import TestPage from './pages/test.page';
+import MyNFTPage from './pages/my.nft.page';
 
 const { TabPane } = Tabs;
 
@@ -16,9 +16,9 @@ const pages = [
     path: '/employee'
   },
   {
-    title: 'test - Contract',
-    component: TestPage,
-    path: '/test'
+    title: 'MyNFT - Contract',
+    component: MyNFTPage,
+    path: '/my-nft'
   },
 ]
 

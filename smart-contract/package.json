@@ -2,7 +2,8 @@
   "name": "hardhat-project",
   "scripts": {
     "test": "hardhat test",
-    "deploy:local": "npx hardhat run --network local scripts/deploy.ts"
+    "deploy:local": "npx hardhat run --network local scripts/deploy.ts",
+    "deploy:ropsten": "npx hardhat run --network ropsten scripts/deploy.ts"
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.3",
@@ -35,5 +36,8 @@
     "ts-node": "^10.4.0",
     "typechain": "^5.2.0",
     "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.4.1"
   }
 }

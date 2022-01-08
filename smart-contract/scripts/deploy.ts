@@ -19,6 +19,14 @@ async function main() {
 
   await employees.deployed();
   console.log("Employees deployed to:", employees.address);
+
+  const MyNFTTokenFactory = await ethers.getContractFactory(
+    "MyNFTTokenFactory"
+  );
+  const myNFTTokenFactory = await MyNFTTokenFactory.deploy();
+
+  await employees.deployed();
+  console.log("MyNFT deployed to:", myNFTTokenFactory.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

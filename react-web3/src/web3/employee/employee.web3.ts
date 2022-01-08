@@ -1,7 +1,7 @@
 import {Web3Handler} from '../web3.handler';
 import ABI from './employee.abi';
 
-const ADDRESS = "0x7Ac9E23B7b00cC3BF2BacC780C0E7152FA02b97e";
+const ADDRESS = "0xeCeF26f79CAeEaece6e2f530cEB8541952ed9924";
 
 
 type EmployeeModel = {
@@ -13,6 +13,7 @@ type EmployeeModel = {
   index: number;
 };
 
+const win = window as any;
 
 class EmployeeWeb3Handler extends Web3Handler { 
 
@@ -34,6 +35,12 @@ class EmployeeWeb3Handler extends Web3Handler {
       })
     }
     return employees;
+  }
+
+  async addEmployee(data: EmployeeModel): Promise<any> {
+    return this.contract.methods.add(data.age, data.city, data.name, data.note).send({
+      from: win.ethereum.selectedAddress,
+    });
   }
 }
 export default new EmployeeWeb3Handler(ABI, ADDRESS);;
