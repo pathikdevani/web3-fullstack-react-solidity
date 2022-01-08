@@ -1,20 +1,55 @@
 import React from 'react';
-import { Button } from 'antd';
-import { Routes, Route, Link } from "react-router-dom";
-
-import Test from './test';
+import { Tabs } from 'antd';
+import { useNavigate, useLocation, Route, Routes } from "react-router-dom";
 
 import './App.css';
+import EmployeePage from './pages/employee.page';
+import TestPage from './pages/test.page';
 
+const { TabPane } = Tabs;
+
+
+const pages = [
+  {
+    title: 'Employee - Contract',
+    component: EmployeePage,
+    path: '/employee'
+  },
+  {
+    title: 'test - Contract',
+    component: TestPage,
+    path: '/test'
+  },
+]
 
 function App() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  console.log(location.pathname);
+
   return (
     <div className="App">
       <header className="App-header">
-        <Button>adasd</Button>
-        <Routes>
-          <Route path="/" element={<Test />} />
-        </Routes>
+        <Tabs 
+        activeKey={location.pathname}
+        onChange={(key) => {
+          console.log(key);
+          const page = pages.find(page => page.path === key);
+          if(page) {
+            navigate(page.path);
+          }
+        }} type="card">
+          {pages.map((page) => {
+            return (
+              <TabPane tab={page.title} key={page.path}>
+                <Routes>
+                  <Route path={page.path} element={<page.component />} />
+                </Routes>
+              </TabPane>
+            );
+          })}
+        </Tabs>
       </header>
     </div>
   );

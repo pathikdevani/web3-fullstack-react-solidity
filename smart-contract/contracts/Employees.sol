@@ -1,8 +1,8 @@
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.0;
 
-contract Citizens {
-    struct Citizen {
+contract Employees {
+    struct Employee {
         uint id;
         string name;
         uint age;
@@ -10,13 +10,12 @@ contract Citizens {
         string note;
     }
 
-    Citizen[] citizens;
+    Employee[] employees;
     event Created(uint id);
 
     constructor() {
         add(1, 32, "Abu Dhabi", "John", "Some of John's notes");
         add(2, 22, "Dubai", "Ali", "Some of Ali's notes");
-        add(2, 56, "Dubai", "Jessica", "Some of Jessica's notes");
         add(3, 44, "Dubai", "James", "Some of Jessica's notes");
         add(4, 41, "Abu Dhabi", "Alla", "Some of Alla's notes");
         add(5, 18, "Abu Dhabi", "Patrick", "Some of Patrick's notes");
@@ -29,12 +28,12 @@ contract Citizens {
     function add(
         uint id,
         uint age,
-        string memory name,
         string memory city,
+        string memory name,
         string memory note
     ) public {
-        Citizen memory citizen = Citizen(id, name,  age, city, note);
-        citizens.push(citizen);
+        Employee memory employee = Employee(id, name,  age, city, note);
+        employees.push(employee);
 
         emit Created(id);
     }
@@ -45,8 +44,8 @@ contract Citizens {
         string memory
     ){
         uint i; 
-        for (i = 0; i < citizens.length; i++) {
-            Citizen memory e = citizens[i];
+        for (i = 0; i < employees.length; i++) {
+            Employee memory e = employees[i];
             if (e.id == id) {
                 return (e.name, e.age, e.city);
             }
@@ -64,11 +63,11 @@ contract Citizens {
             string memory
         )
     {
-        if (index > citizens.length - 1) {
+        if (index > employees.length - 1) {
             return (0, "", 0, "");
         }
-        Citizen memory citizen = citizens[index];
-        return (citizen.id, citizen.name, citizen.age, citizen.city);
+        Employee memory employee = employees[index];
+        return (employee.id, employee.name, employee.age, employee.city);
     }
 
     function getNoteByIndex(uint index)
@@ -76,30 +75,34 @@ contract Citizens {
         view
         returns (string memory)
     {
-        if (index > citizens.length - 1) {
+        if (index > employees.length - 1) {
             return ("");
         }
-        Citizen memory citizen = citizens[index];
-        return (citizen.note);
+        Employee memory employee = employees[index];
+        return (employee.note);
     }
 
     function getCount() public view returns (uint count) {
-        return uint(citizens.length);
+        return uint(employees.length);
+    }
+    
+    function getEmployees() public view returns (Employee[] memory values) {
+        return(employees);
     }
 
     function fetch(uint cursor, uint256 howMany)
         public
         view
-        returns (Citizen[] memory values, uint256 newCursor)
+        returns (Employee[] memory values, uint256 newCursor)
     {
         uint256 length = howMany;
-        if (length > citizens.length - cursor) {
-            length = citizens.length - cursor;
+        if (length > employees.length - cursor) {
+            length = employees.length - cursor;
         }
 
-        values = new Citizen[](length);
+        values = new Employee[](length);
         for (uint256 i = 0; i < length; i++) {
-            values[i] = citizens[cursor + i];
+            values[i] = employees[cursor + i];
         }
 
         return (values, cursor + length);
