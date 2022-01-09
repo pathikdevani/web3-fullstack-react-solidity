@@ -26,15 +26,12 @@ function App() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  console.log(location.pathname);
-
   return (
     <div className="App">
       <header className="App-header">
         <Tabs 
         activeKey={location.pathname}
         onChange={(key) => {
-          console.log(key);
           const page = pages.find(page => page.path === key);
           if(page) {
             navigate(page.path);

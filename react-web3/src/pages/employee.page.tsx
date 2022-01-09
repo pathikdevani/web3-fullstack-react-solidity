@@ -38,7 +38,6 @@ function EmployeePage() {
             isVisible={isAddModalOpen}
             onSubmit={async (data:any) => { 
                try {
-                console.log('started');
                 await employeeWeb3.addEmployee({
                   id: 0,
                   index: 0,

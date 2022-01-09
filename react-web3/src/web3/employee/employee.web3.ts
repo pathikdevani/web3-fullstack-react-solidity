@@ -1,10 +1,7 @@
 import {Web3Handler} from '../web3.handler';
 import EmployeesSON from '../../abis/Employees.sol/Employees.json';
 
-const ADDRESS = "0x493e7f9f307C9f42F85C5848Cb74bF58E48F15f9";
-
-
-
+const ADDRESS = process.env.REACT_APP_EMPLOYEE_ADDRESS as string;
 
 type EmployeeModel = {
   name: string;

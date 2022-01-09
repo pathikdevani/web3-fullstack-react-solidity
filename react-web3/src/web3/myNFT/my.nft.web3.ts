@@ -1,7 +1,7 @@
 import {Web3Handler} from '../web3.handler';
 import MyNFTTokenFactoryJSON from '../../abis/MyNFTFactory.sol/MyNFTTokenFactory.json';
 
-const ADDRESS = "0x8Bf9Aa70dA104A4c9a2BE3991154cb7b639c765d";
+const ADDRESS = process.env.REACT_APP_MY_NFT_ADDRESS as string;
 
 const win = window as any;
 class MyNFT3FactoryHandler extends Web3Handler { 
