@@ -17,7 +17,6 @@ function MyNFTPage() {
     await web3.load();
     const data = await web3.getNFTs();
     setNfts(data);
-    console.log(data);
   }, []);
   
 
