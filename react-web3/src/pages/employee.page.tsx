@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { message, Button } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
 
 import {employeeWeb3} from '../web3/index.web3';
 import EmployeeCard from '../components/employee.card';
 import { web3Helper } from '../web3/web3.helper';
 import Web3Wrapper from '../components/web3.wrapper';
-import { message, Button } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
 import EmployeeAdd from '../components/employee.add';
 
 function EmployeePage() {
@@ -47,14 +47,14 @@ function EmployeePage() {
                   name: data.name,
                   note: data.note,
                 });
-                message.success('This is a success message');
+                message.success('Employee added successfully!');
                 setIsModalOpen(false);
 
 
                 // after succes we have to reload employee
               } catch(error) {
                 console.log(error);
-                message.error('This is an error message');
+                message.error('Error while addeding new employee!');
               }
             }}
             onCancel={() => { setIsModalOpen(false); }}

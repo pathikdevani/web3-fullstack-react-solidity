@@ -76,7 +76,7 @@ const abi = [
       },
       {
         "internalType": "string",
-        "name": "symbole",
+        "name": "symbol",
         "type": "string"
       },
       {

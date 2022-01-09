@@ -1,7 +1,7 @@
 import {Web3Handler} from '../web3.handler';
 import ABI from './employee.abi';
 
-const ADDRESS = "0xeCeF26f79CAeEaece6e2f530cEB8541952ed9924";
+const ADDRESS = "0x493e7f9f307C9f42F85C5848Cb74bF58E48F15f9";
 
 
 type EmployeeModel = {

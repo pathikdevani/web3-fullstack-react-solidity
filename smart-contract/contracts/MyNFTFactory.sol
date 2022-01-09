@@ -26,7 +26,7 @@ contract MyNFTTokenFactory is Ownable {
     function getNFTDetails(address nftAddress)
         public
         view
-        returns (string memory name, string memory symbole, string memory color)
+        returns (string memory name, string memory symbol, string memory color)
     {
         MyNFT token = MyNFT(nftAddress);
         return (token.name(), token.symbol(), token.color());
