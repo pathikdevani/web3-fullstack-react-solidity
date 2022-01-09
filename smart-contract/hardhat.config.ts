@@ -26,16 +26,18 @@ const config: HardhatUserConfig = {
   solidity: "0.8.4",
   networks: {
     ropsten: {
-      url: "https://ropsten.infura.io/v3/b3bb5eda77b241beb2bd1e2a1a623a4f",
-      accounts: [
-        "bf4a04b5eb8f335d04bc79ac1dd647d051a452c9dc7bd65df06c1fe3e1db3c66",
-      ],
+      url: process.env.ROPSTEN_URL,
+      accounts:
+        process.env.ROPSTEN_ACCOUNT_KEY !== undefined
+          ? [process.env.ROPSTEN_ACCOUNT_KEY]
+          : [],
     },
     local: {
-      url: "http://127.0.0.1:8545",
-      accounts: [
-        "bbd6bbaecefd0e5b868cc23f37dcfed83a4da450ab059d6f542e0a414545d708",
-      ],
+      url: process.env.LOCAL_URL,
+      accounts:
+        process.env.LOCAL_ACCOUNT_KEY !== undefined
+          ? [process.env.LOCAL_ACCOUNT_KEY]
+          : [],
     },
   },
   gasReporter: {

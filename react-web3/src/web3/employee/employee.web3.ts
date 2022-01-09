@@ -1,7 +1,9 @@
 import {Web3Handler} from '../web3.handler';
-import ABI from './employee.abi';
+import EmployeesSON from '../../abis/Employees.sol/Employees.json';
 
 const ADDRESS = "0x493e7f9f307C9f42F85C5848Cb74bF58E48F15f9";
+
+
 
 
 type EmployeeModel = {
@@ -43,4 +45,4 @@ class EmployeeWeb3Handler extends Web3Handler {
     });
   }
 }
-export default new EmployeeWeb3Handler(ABI, ADDRESS);;
+export default new EmployeeWeb3Handler(EmployeesSON.abi, ADDRESS);;

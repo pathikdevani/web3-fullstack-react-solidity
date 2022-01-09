@@ -1,5 +1,5 @@
 import {Web3Handler} from '../web3.handler';
-import ABI from './my.nft.abi';
+import MyNFTTokenFactoryJSON from '../../abis/MyNFTFactory.sol/MyNFTTokenFactory.json';
 
 const ADDRESS = "0x8Bf9Aa70dA104A4c9a2BE3991154cb7b639c765d";
 
@@ -21,4 +21,4 @@ class MyNFT3FactoryHandler extends Web3Handler {
   }
 }
 
-export default new MyNFT3FactoryHandler(ABI, ADDRESS);;
+export default new MyNFT3FactoryHandler(MyNFTTokenFactoryJSON.abi, ADDRESS);;
