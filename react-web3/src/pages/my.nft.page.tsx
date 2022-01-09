@@ -9,7 +9,8 @@ function MyNFTPage() {
 
   const loadWeb3 = useCallback(async() => {
     await web3.load();
-
+    const data = await web3.getNFTs();
+    console.log(data);
   }, []);
   
 

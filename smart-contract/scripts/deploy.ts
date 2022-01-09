@@ -25,7 +25,7 @@ async function main() {
   );
   const myNFTTokenFactory = await MyNFTTokenFactory.deploy();
 
-  await employees.deployed();
+  await myNFTTokenFactory.deployed();
   console.log("MyNFT deployed to:", myNFTTokenFactory.address);
 }
 
