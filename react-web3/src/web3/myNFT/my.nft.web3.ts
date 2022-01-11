@@ -21,4 +21,4 @@ class MyNFT3FactoryHandler extends Web3Handler {
   }
 }
 
-export default new MyNFT3FactoryHandler(MyNFTTokenFactoryJSON.abi, ADDRESS);;
+export default new MyNFT3FactoryHandler(MyNFTTokenFactoryJSON.abi, ADDRESS);

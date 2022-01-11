@@ -16,11 +16,11 @@ class Web3Handler {
 
 	load() {
 		this.web3 = new (Web3 as any)(win.ethereum);
-    this.web3.eth.defaultAccount = win.ethereum.selectedAddress;
-    this.contract = new this.web3.eth.Contract(
-      this.abi as any[],
-      this.address
-    );
+		this.web3.eth.defaultAccount = win.ethereum.selectedAddress;
+		this.contract = new this.web3.eth.Contract(
+			this.abi as any[],
+			this.address
+    	);
 	}
 }
 
